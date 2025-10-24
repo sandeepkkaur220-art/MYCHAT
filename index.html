@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBM Watson Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      color: #0f62fe;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #333;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Website</h1>
+  <p>Chat with our AI Assistant below 👇</p>
+
+  <!-- IBM Watson Assistant Chat Script -->
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "c7ab87f0-a935-4235-a6c7-3eb6cddecba5", // The ID of this integration
+      region: "eu-de", // The region your integration is hosted in
+      serviceInstanceID: "914df0d3-1692-434c-af84-3a79898b2352", // The ID of your service instance
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" +
+              (window.watsonAssistantChatOptions.clientVersion || 'latest') +
+              "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+
+</body>
+</html>
